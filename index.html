@@ -1,0 +1,121 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Body Mass Index Calculator</title>
+        <link rel="icon" href="https://vsimgs3.forfansbyfans.com/image/cache/data/productimages/CSGO/Accessories/17/CSGO_LaserMeshCap_Closeup-1000x1000.jpg">
+             
+        <script type="text/javascript">
+          
+            function computeBMI() {
+                
+                var height = Number(document.getElementById("height").value);
+                var heightunits = document.getElementById("heightunits").value;
+                var weight = Number(document.getElementById("weight").value);
+                var weightunits = document.getElementById("weightunits").value;
+        
+        
+                
+                if (heightunits == "inches") height /= 39.3700787;
+                if (weightunits == "lb") weight /= 2.20462;
+        
+        
+                var BMI = Math.round(weight / Math.pow(height, 2) * 10000);
+        
+                
+                document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+        
+               
+                var output = Math.round(BMI * 100) / 100
+                if (output < 18.5)
+                    document.getElementById("comment").innerText = "Underweight";
+                
+                else if (output >= 18.5 && output <= 25)
+                    document.getElementById("comment").innerText = "Normal";
+                
+                else if (output >= 25 && output <= 30)
+                    document.getElementById("comment").innerText = "Obese";
+                
+                else if (output > 30)
+                    document.getElementById("comment").innerText = "Overweight";
+                
+            }
+        
+		</script>
+       <style>
+                body, html {
+           
+              /* The image used */
+              background-image: url("https://scontent.fbne4-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/69991667_1365547883598361_872095622008668160_n.jpg?_nc_cat=106&_nc_oc=AQnOGxL25UZh5gN3K6I23kwrkiPJqV29OTdslonxaOSfMmNAAvvvKS7nhLXtHCH1-Cc&_nc_ht=scontent.fbne4-1.fna&oh=9f06301aec1f75b2801dd8a83473ba21&oe=5DCAA18A");
+
+              /* Full height */
+              height: 100%; 
+
+              /* Center and scale the image nicely */
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+			  
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #d8ecff;
+}
+           
+.active {
+  background-color: #f88379;
+}
+
+        </style>
+    </head>
+		<body>
+		<nav class="w3-bar w3-black">
+      <ul>
+		<li><a href="https://vanhuytran.github.io/Home/">Home</a></li>
+		<li><a class="active" href="file:///F:/Digital%20Solution/HTML/BMI_Calculator.html">BMI Calculator</a></li>
+        <li><a href="file:///F:/Digital%20Solution/HTML/contact_information_BMI.html">Contact</a></li>
+      </ul>
+    </nav>
+		<br><br><br><br>
+        <center>
+        <h1>BMI Calculator</h1>
+            <p> <strong> Enter your height: </strong> <input type="text" id="height"/>
+            <select type="multiple" id="heightunits">
+                <option value="centimeters" selected="selected">Centimeters</option>
+                <option value="inches">Inches</option>
+            </select>
+        </p>
+        
+            <p> <strong> Enter your weight: </strong> <input type="text" id="weight"/>
+            <select type="multiple" id="weightunits">
+                <option value="kg" selected="selected">Kilograms</option>
+                <option value="lb">Pounds</option>
+            </select>
+        </p>
+        
+        <input type="submit" value="Press this button to see the results" onclick="computeBMI();">
+            <p> Your BMI is: <span id="output"> .....</span> </p>
+        
+            <p> This means you are: <span id="comment"> .....</span> </p> 
+            
+        </center>
+    </body>
+</html>
